@@ -16,6 +16,54 @@ import Foundation
 public class RCache {
     
     private init() {}
+    
+    /**
+     Get a RCaching instance with common level. Used to store RCache for regular data.
+     - returns: RCaching
+     
+     # Notes: #
+     1. This instance is an instance of UserDefaultsRCache.
+     
+     # Example #
+     ```
+     // RCache.common
+     ```
+     */
+    public class var common: RCaching {
+        get {
+            return UserDefaultsRCache.instance
+        }
+    }
+    
+    /**
+     Get a RCaching instance with credentials level. Used to store RCache for credentials data.
+     - returns: RCaching
+     
+     # Notes: #
+     1. This instance is an instance of KeychainRCache.
+     
+     # Example #
+     ```
+     // RCache.credentials
+     ```
+     */
+    public class var credentials: RCaching {
+        get {
+            return KeychainRCache.instance
+        }
+    }
+    
+    /**
+     Method to delete all data for common and credential levels stored via RCache/RCaching.
+     # Example #
+     ```
+     // RCache.clear()
+     ```
+     */
+    public class func clear() {
+        common.clear()
+        credentials.clear()
+    }
 }
 
 // MARK: - Key
