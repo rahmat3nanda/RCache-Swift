@@ -13,7 +13,7 @@ public class UserDefaultsRCache: RCaching {
     private static let lock = NSLock()
     
     private var defaults: UserDefaults = UserDefaults.standard
-    private var identifier: String = "UserDefaultsCache"
+    private var identifier: String = "UserDefaultsRCache"
     
     private init(){}
     
