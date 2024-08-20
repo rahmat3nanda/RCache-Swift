@@ -178,7 +178,8 @@ fileprivate extension Array<Any> {
     
     init?(data: Data) {
         do {
-            if let array = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self], from: data) as? [Any] {
+            let allowedClasses: [AnyClass] = [NSArray.self, NSNumber.self, NSString.self, NSDictionary.self, NSData.self]
+            if let array = try NSKeyedUnarchiver.unarchivedObject(ofClasses: allowedClasses, from: data) as? [Any] {
                 self = array
             } else {
                 return nil
