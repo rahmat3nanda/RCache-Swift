@@ -71,11 +71,13 @@ public class UserDefaultsRCache: RCaching {
     }
     
     public func save<T: Codable>(value: T, key: RCache.Key) throws {
-        return defaults.set(value, forKey: generate(key))
+        let data = try JSONEncoder().encode(value)
+        defaults.set(data, forKey: generate(key))
     }
     
     public func read<T:Codable>(type: T.Type, key: RCache.Key) throws -> T? {
-        return defaults.value(forKey: generate(key)) as? T
+        guard let data = readData(key: key) else { return nil }
+        return try JSONDecoder().decode(type, from: data)
     }
     
     public func readBool(key: RCache.Key) -> Bool? {
