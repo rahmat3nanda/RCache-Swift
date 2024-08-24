@@ -26,7 +26,7 @@ Add the following to your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/rahmat3nanda/RCache-Swift.git", .upToNextMajor(from: "1.0.1"))
+    .package(url: "https://github.com/rahmat3nanda/RCache-Swift.git", .upToNextMajor(from: "1.0.2"))
 ]
 ```
 
@@ -46,7 +46,7 @@ targets: [
 
 1. Add to your `Podfile`:
    ```ruby
-   pod 'RCache', '~> 1.0.1'
+   pod 'RCache', '~> 1.0.2'
    ```
 
 2. Run:
