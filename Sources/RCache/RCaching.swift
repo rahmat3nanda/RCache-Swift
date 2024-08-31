@@ -37,19 +37,6 @@ public protocol RCaching {
     func save(data: Data, key: RCache.Key)
     
     /**
-     Method for storing Data with a defined key.
-     
-     - parameter data: T.
-     - parameter key: RCache.Key.
-     
-     # Example #
-     ```
-     // RCaching.instance.save(value: Codable, key: {key})
-     ```
-     */
-    func save<T: Codable>(value: T, key: RCache.Key) throws
-    
-    /**
      Method for storing String with a defined key.
      
      - parameter data: String.
@@ -141,16 +128,17 @@ public protocol RCaching {
     func save(float: Float, key: RCache.Key)
     
     /**
-     Method for getting Data with a defined key
+     Method for storing Codable Model with a defined key.
+     
+     - parameter data: T.
      - parameter key: RCache.Key.
-     - returns: T?
      
      # Example #
      ```
-     // RCaching.instance.readData(type: Codable.self, key: RCache.Key("data"))
+     // RCaching.instance.save(value: YourModelExtendCodable(), key: RCache.Key("codable"))
      ```
      */
-    func read<T: Codable>(type: T.Type, key: RCache.Key) throws -> T?
+    func save<T: Codable>(value: T, key: RCache.Key) throws
     
     /**
      Method for getting Data with a defined key
@@ -247,6 +235,19 @@ public protocol RCaching {
      ```
      */
     func readFloat(key: RCache.Key) -> Float?
+    
+    /**
+     Method for getting Codable Model with a defined key
+     - parameter type: T.Key.
+     - parameter key: RCache.Key.
+     - returns: T?
+     
+     # Example #
+     ```
+     // RCaching.instance.readData(type: YourModelExtendCodable.self, key: RCache.Key("data"))
+     ```
+     */
+    func read<T: Codable>(type: T.Type, key: RCache.Key) throws -> T?
     
     
     /**
