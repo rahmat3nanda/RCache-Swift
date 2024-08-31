@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RCache'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'RCache is a lightweight Swift library designed to simplify data storage.'
   s.description      = 'RCache is a lightweight Swift library designed to simplify data storage in UserDefaults and Keychain.'
   s.homepage         = 'https://github.com/rahmat3nanda/RCache-Swift.git'
