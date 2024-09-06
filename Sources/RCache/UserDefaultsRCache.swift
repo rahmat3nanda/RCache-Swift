@@ -120,7 +120,7 @@ public class UserDefaultsRCache: RCaching {
 
 private extension UserDefaultsRCache {
     private func generate(_ key: RCache.Key) -> String {
-        return "\(identifier)-\(key.rawValue)"
+        return key.stringId(identifier)
     }
 }
 

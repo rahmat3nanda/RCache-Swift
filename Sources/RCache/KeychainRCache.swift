@@ -132,7 +132,7 @@ public class KeychainRCache: RCaching {
 
 private extension KeychainRCache {
     private func generate(_ key: RCache.Key) -> String {
-        return "\(identifier)-\(key.rawValue)"
+        return key.stringId(identifier)
     }
 }
 
