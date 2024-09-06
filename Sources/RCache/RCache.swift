@@ -81,3 +81,11 @@ public extension RCache {
         }
     }
 }
+
+// MARK: - Key to String {
+internal extension RCache.Key {
+    func stringId(_ id: String) -> String {
+        let bundleId = Bundle.main.bundleIdentifier ?? ""
+        return "\(bundleId)-\(id)-\(rawValue)".replacingOccurrences(of: " ", with: "_")
+    }
+}
